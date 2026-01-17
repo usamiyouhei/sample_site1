@@ -1,17 +1,4 @@
-/* :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
 
-  color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-} */
 * {
   margin: 0;
   padding: 0;
@@ -34,7 +21,29 @@ body {
   min-width: 320px;
   min-height: 100vh; */
 }
+html {
+  font-size: 16px;
+}
 
+body {
+  font-family: base-font;
+}
+
+/* // PCでは電話番号のクリックを無効にする */
+a[href^="tel:"] {
+  pointer-events: none;
+  @include mq("md") {
+    pointer-events: auto;
+  }
+}
+
+/* // aタグには標準でホバーアニメーションが付与されるようにする */
+a {
+  transition: opacity 0.3s;
+  &:hover {
+    opacity: 0.7;
+  }
+}
 h1 {
   font-size: 3.2em;
   line-height: 1.1;
